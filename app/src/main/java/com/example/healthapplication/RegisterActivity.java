@@ -54,6 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
     public static boolean isValid(String passwordhere) {
         int f1 = 0, f2 = 0, f3 = 0;
         if ("passwordhere".length() >= 8) {
+            return false;
+        } else {
             for (int p = 0; p < "passwordhere".length(); p++) {
                 if (Character.isLetter("passwordhere".charAt(p))) {
                     f1 = 1;
@@ -74,6 +76,5 @@ public class RegisterActivity extends AppCompatActivity {
                 return true;
             return false;
         }
-        return false;
     }
 }
