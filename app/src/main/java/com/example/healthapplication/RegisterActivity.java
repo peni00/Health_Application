@@ -1,5 +1,6 @@
 package com.example.healthapplication;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,9 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
             else {
                 if(password.compareTo(confirm)==0) {
                     if (isValid(password)) {
-
-                        Toast.makeText(getApplicationContext(),"Record Inserted",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                        Toast.makeText(getApplicationContext(), "Record Inserted",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }else {
                         Toast.makeText(getApplicationContext(),"Password must contain at least 8 characters, having letter,number and special character.", Toast.LENGTH_SHORT).show();
                     }
@@ -53,21 +53,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public static boolean isValid(String passwordhere) {
         int f1 = 0, f2 = 0, f3 = 0;
-        if ("passwordhere".length() >= 8) {
+        if (passwordhere.length() < 8) {
             return false;
         } else {
-            for (int p = 0; p < "passwordhere".length(); p++) {
-                if (Character.isLetter("passwordhere".charAt(p))) {
+            for (int p = 0; p < passwordhere.length(); p++) {
+                if (Character.isLetter(passwordhere.charAt(p))) {
                     f1 = 1;
                 }
             }
-            for (int r = 0; r < "passwordhere".length(); r++) {
-                if (Character.isLetter("passwordhere".charAt(r))) {
+            for (int r = 0; r < passwordhere.length(); r++) {
+                if (Character.isLetter(passwordhere.charAt(r))) {
                     f2 = 1;
                 }
             }
-            for (int s = 0; s < "passwordhere".length(); s++) {
-                char c = "passwordhere".charAt(s);
+            for (int s = 0; s < passwordhere.length(); s++) {
+                char c = passwordhere.charAt(s);
                 if (c >= 33 && c <= 46 || c == 64) {
                     f3 = 1;
                 }
